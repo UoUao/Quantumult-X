@@ -6,9 +6,6 @@ resource_parser_url=https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/maste
 #IP_API 改自 @XIAO_KOP
 geo_location_checker=http://ip-api.com/json/?lang=zh-CN, https://raw.githubusercontent.com/limbopro/QuantumultX/master/Scripts/IP_API.js
 [dns]
-# 查询结果只用于评估过滤器或通过直接策略连接，当通过服务器连接时，查询结果不会被使用，Quantumult 永远不会知道相关域名的目标 IP。
-# 如果您想让某个域名(例如：example.com)为 127.0.0.0.1，只需在「filter_local」部分添加「host, example.com, reject」即可。拒绝操作将返回 127.0.0.0.1 的 DNS 响应。
-
 # 禁用系统 DNS
 # 为了提高性能，会使用从当前网络(系统)中获取的 DNS 服务器(您可以使用「no-system」禁用此功能，但至少要增加一个自定义的 DNS 服务器。
 ;no-system
@@ -25,17 +22,7 @@ server=119.29.29.29
 # > Alibaba Public DNS
 ;server=223.5.5.5
 
-# 在特定的网络环境下忽略自定义 DNS 可在后方加上「excluded_ssids」相关字段。
-# 注意：如配置了 no-system，则请务必确保在忽略了部分自定义 DNS 的配置下至少有一个可用的自定义 DNS 配置。
-# server=114.114.114.114, excluded_ssids=SSID1, SSID2
-
 # DNS over HTTPS
-# 当 DoH 服务器被设置时，所有其他普通的（没有与之相关的特定域）服务器将被忽略。
-# 当设置了多个 DoH 服务器时，只有第一个会被使用。
-# 当使用的 DoH 服务器不是基于 HTTP/2 时，DoH 将被暂时禁用，并使用常规服务器，直到下次启动 VPN 连接。
-# 不建议在与防火墙相关的网络环境中使用，不确定 DoH 服务器是否总能被到达。
-# 如果 DoH 服务器在您的国家或地区不是流行的 DNS 服务器，则不推荐使用，它可能会丢失 ISP DNS 服务器返回的 CDN 优化结果。
-# 如果 DoH 服务器是一个反广告相关的服务器，则不推荐使用（Quantumult X 过滤模块对于被拒绝的域具有更好的性能，它可以避免客户端无休止的请求）。
 ;doh-server=https://dns.alidns.com/dns-query
 ;doh-server=https://223.6.6.6/dns-query
 
@@ -158,13 +145,7 @@ FINAL,🐟 漏网之鱼
 event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=📺流媒体服务查询, img-url=checkmark.seal.system, enabled=true
 
 [http_backend]
-#
-# 部署一个本地 HTTP 服务器，并使用 JavaScript 进行数据处理。
-# 输入变量为：$reqeust.url、$reqeust.path、$reqeust.headers、$reqeust.body。
-# 使用 $done 输出像 $done({status:"HTTP/1.1 200 OK"}, headers:{}, body:"here is a string") 这样的返回响应。
-# 此外，您还可以使用签名或任何其他验证方法来验证请求是否合法。
-# 部署后您应该通过 http://127.0.0.1:9999/your-path/your-api/. 进行访问。服务器默认监听端口为 9999，您可以在UI中进行更改。
-#
+
 # [http_backend] 完整示例请查看「示例」
 
 [mitm]
