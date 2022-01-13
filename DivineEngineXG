@@ -14,12 +14,10 @@ geo_location_checker=http://ip-api.com/json/?lang=zh-CN, https://raw.githubuserc
 no-ipv6
 
 # 自定义 DNS
-# > OneDNS
-;server=117.50.10.10
-# > DNSPod Public DNS
 server=119.29.29.29
-# > Alibaba Public DNS
-;server=223.5.5.5
+server=223.5.5.5
+server=223.6.6.6
+server=1.2.4.8
 
 # DNS over HTTPS
 ;doh-server=https://dns.alidns.com/dns-query
@@ -90,12 +88,18 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Unbreak.list, tag=🎯规则修正-直连, update-interval=86400, opt-parser=false, enabled=true
 # Advertising 广告
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Guard/Advertising.list, tag=🛑轻量广告拦截-拒绝, update-interval=86400, opt-parser=false, enabled=true
+# 超过4万条广告规则, 阻止常见的APP广告/隐私/行为/数据/流量/劫持的统计和追踪
+https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt, tag=AD_Block（4万条去广告规则）, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
+# 超过6万条国内外广告规则, 可以与"AD_Block.txt"一起使用, 注: 可能有一些误杀, 请谨慎使用
+https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt, tag=AD_Block_plus（6万条去广告规则）, force-policy=reject, update-interval=86400, opt-parser=true, enabled=false
 # NobyDa大佬去广告 -默认关闭，自行手动启用！
 https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list, tag=🛑重度广告拦截-拒绝, force-policy=reject, update-interval=86400, opt-parser=false, enabled=false
 # Privacy 隐私
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Guard/Privacy.list, tag=🛑隐私保护-拒绝, update-interval=86400, opt-parser=false, enabled=true
 # Hijacking 运营商劫持或恶意网站
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Guard/Hijacking.list, tag=🛑运营商劫持-拒绝, update-interval=86400, opt-parser=false, enabled=true
+#国内媒体
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/StreamingCN.list, tag=国内媒体, force-policy=direct, update-interval=86400, opt-parser=true, enabled=true
 # Streaming 国际流媒体服务
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Streaming.list, , tag=🚀 节点选择, force-policy=🚀 节点选择, update-interval=86400, opt-parser=false , enabled=true
 # Global 全球加速
@@ -104,11 +108,36 @@ https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/China.list, tag=🎯国内网站-直连, force-policy=direct, update-interval=86400, opt-parser=false, enabled=true
 # ChinaIP 中国直连
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/ChinaIP.list, tag=🎯中国IP-直连, update-interval=86400, opt-parser=false , enabled=true
+https://gaoyifan.github.io/china-operator-ip/chinanet6.txt#type=rule, tag=ChinaIPv6, force-policy=direct, update-interval=86400, opt-parser=true, enabled=true
+# 规则修正，无需设置策略偏好，保持启用即可
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Unbreak.list, tag=规则修正, update-interval=86400, opt-parser=true, enabled=true
+# Telegram
+https://raw.githubusercontent.com/eHpo1/Rules/master/QuantumultX/Filter/Sub/Telegram.txt, tag=Telegram, force-policy=Telegram, update-interval=86400, opt-parser=true, enabled=true
+# 屏蔽系统更新
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/Apple/BlockiOSUpdate.list, tag=屏蔽系统更新, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
+# AppStore
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/Apple/Apple.list, tag=AppStore, force-policy=Apple服务, update-interval=86400, opt-parser=true, enabled=true
+#Netflix
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Netflix/Netflix.list, tag=Netflix, force-policy=Netflix, update-interval=86400, opt-parser=true, enabled=true
+# GeoIP2 数据库（设置、GeoLite2来源自行添加）
+; https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb
 
 [rewrite_remote]
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.tf.conf, tag=Boxjs, update-interval=86400, opt-parser=false, enabled=true
 https://raw.githubusercontent.com/w37fhy/QuantumultX/master/QuantumultX_JS.conf, tag=比价等脚本, update-interval=86400, opt-parser=false, enabled=true
 https://raw.githubusercontent.com/w37fhy/QuantumultX/master/QuantumultX_Cookie.conf, tag=获取Cookie, update-interval=86400, opt-parser=false, enabled=true
+# 神机复写
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf, tag=神机复写, update-interval=86400, opt-parser=false, enabled=true
+# 关闭谷歌安全搜索(Beta)
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Turn-Off-Google-Safesearch.conf, tag=关闭谷歌安全搜索(Beta), update-interval=86400, opt-parser=false, enabled=true
+# YouTube去广告
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/YouTubeAds.conf, tag=YouTube去广告, update-interval=86400, opt-parser=false, enabled=true
+# 京东淘宝比价
+https://raw.githubusercontent.com/anran180224/Quantumult-X/main/JS.conf/Jd_TaoBao.js, tag=京东淘宝比价, update-interval=86400, opt-parser=false, enabled=false
+#去广告及VIP
+https://raw.githubusercontent.com/anran180224/Quantumult-X/main/JS.conf/Ad_vip.js, tag=去广告和VIP, update-interval=86400, opt-parser=false, enabled=false
+#微信小程序去广告
+https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Applet/QuanX.conf, tag=微信小程序去广告, update-interval=86400, opt-parser=false, enabled=false
 
 [server_local]
 #解锁网易云音乐节点
@@ -130,8 +159,12 @@ FINAL,🐟 漏网之鱼
 
 [task_local]
 event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=📺流媒体服务查询, img-url=checkmark.seal.system, enabled=true
+# GeoIP查询
+event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/geo_location.js, tag=GeoIP 查询, img-url=location.fill.viewfinder.system, enabled=true
 
 [http_backend]
+# BoxJs
+https://gitee.com/chavyleung/scripts/raw/master/box/chavy.boxjs.js, tag=BoxJs.net, path=^/, enabled=false
 
 [mitm]
 ;passphrase =
