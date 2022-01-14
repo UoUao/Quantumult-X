@@ -95,101 +95,72 @@ server=/tplogin.cn/system
 address=/mtalk.google.com/108.177.125.188
 
 [policy]
-static=🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港,🇯🇵 日本,🇸🇬 新加坡,🇺🇸 美国, PROXY, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Available.png
-# 默认设置10分钟测速一次，当前使用节点延迟和最新测速延迟最低的节点相差100ms以上则切换为最新的最低延迟节点，否则继续延用节点
-url-latency-benchmark=♻️ 自动选择, server-tag-regex=.*, check-interval=600, tolerance=100, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-url-latency-benchmark=🇭🇰 香港, server-tag-regex=(?=.*(港|HK|(?i)Hong))^((?!(台湾|日本|新加坡|美国|韩国|狮城|南朝鲜|US|SG|JP|KR|TW|台灣|美國|韓國|獅城)).)*$, check-interval=600, tolerance=50, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Hong_Kong.png
-url-latency-benchmark=🇨🇳 台湾, server-tag-regex=(?=.*(台|TW|(?i)Taiwan))^((?!(港|日|韩|新|美)).)*$, check-interval=600, tolerance=50, img-url=https://raw.githubusercontent.com/Orz-3/face/master/TW.png
-url-latency-benchmark=🇯🇵 日本, server-tag-regex=(?=.*(日本|JP|(?i)Japan))^((?!(香港|台湾|新加坡|美国|韩国|狮城|南朝鲜|US|SG|KR|HK|TW|台灣|美國|韓國|獅城)).)*$, check-interval=600, tolerance=100, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Japan.png
-url-latency-benchmark=🇸🇬 新加坡, server-tag-regex=(?=.*(新加坡|狮城|SG|(?i)Singapore))^((?!(香港|台湾|日本|美国|韩国|南朝鲜|US|JP|KR|HK|TW|台灣|美國|韓國)).)*$, check-interval=600, tolerance=100, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Singapore.png
-url-latency-benchmark=🇺🇸 美国, server-tag-regex=(?=.*(美国|美國|US|洛杉矶|西雅图|(?i)States|American))^((?!(香港|台湾|日本|新加坡|韩国|狮城|南朝鲜|SG|JP|KR|HK|TW|台灣|韓國|獅城)).)*$, check-interval=600, tolerance=100, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/United_States.png
-static=Final, HK, TW, JP, SG, US, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_Fitness.png
-static=Telegram, HK, SG, US, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
-static=Streaming, HK, TW, JP, SG, US, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
-static=Guard, reject, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JOOX.png
-static=🙈 网易云音乐, 解锁节点一, 🚀 节点选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netease_Music.png
-static=🐟 漏网之鱼, 🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港,🇨🇳 台湾,🇯🇵 日本,🇸🇬 新加坡,🇺🇸 美国, PROXY, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+available=♻️ 故障切换, 无用节点1, 无用节点2, img-url=https://raw.githubusercontent.com/limbopro/Zure/master/IconSet/Available.png
+static=✈️ 机场专线, 🎥 其他国外流媒体, ♻️ 故障切换, PROXY, DIRECT, img-url=https://raw.githubusercontent.com/limbopro/Zure/master/IconSet/rocket.png
+static=📲 社交媒体, 🎥 其他国外流媒体,  ♻️ 故障切换, PROXY, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
+static=🍎 苹果服务, DIRECT, 🎥 其他国外流媒体, ♻️ 故障切换, PROXY, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+static=🎥 Netflix, 🎥 其他国外流媒体, PROXY, img-url=https://raw.githubusercontent.com/limbopro/Zure/master/IconSet/Netflix_Letter.png
+static=🎥 其他国外流媒体, ♻️ 故障切换, PROXY, img-url=https://raw.githubusercontent.com/limbopro/Qure/master/IconSet/GlobalMedia.png
+static=🛑 广告拦截, REJECT, PROXY, DIRECT, img-url=https://raw.githubusercontent.com/limbopro/Qure/master/IconSet/Advertising.png
+static=🐟 Final, 🎥 其他国外流媒体, ♻️ 故障切换, PROXY, DIRECT, 🛑 广告拦截, img-url=https://raw.githubusercontent.com/limbopro/Zure/master/IconSet/Final.png
 
+
+[server_remote]
+# https://raw.githubusercontent.com/limbopro/Profiles4limbo/main/unlesssub.txt, tag=无用节点（❌请不要动它）, enabled=false
+# 无用订阅（请勿删除）
+
+[filter_remote]
+https://raw.githubusercontent.com/limbopro/Profiles4limbo/main/airports.list, tag=机场专线, force-policy=✈️ 机场专线, enabled=true
+https://limbopro.com/Adblock4limbo.list, tag=毒奶特供, force-policy=🛑 广告拦截, enabled=true
+https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt, tag=野比(4W+), force-policy=🛑 广告拦截, enabled=true
+https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt, tag=野比(6W+), force-policy=🛑 广告拦截, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/Apple/BlockiOSUpdate.list, tag=禁止🚫🍎更新, force-policy=🛑 广告拦截, update-interval=86400, opt-parser=false, enabled=false
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Video/Netflix.list, tag=Netflix, force-policy=🎥 Netflix, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Streaming.list, tag=其他国外流媒体, force-policy=🎥 其他国外流媒体, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Global.list, tag=社交媒体, force-policy=📲 社交媒体, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/Apple/Apple.list, tag=苹果服务, force-policy=🍎 苹果服务, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/China.list, tag=大陆媒体, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/ChinaIP.list, tag=GEOIP(CN), enabled=true
 [server_remote]
 
 [server_local]
-#解锁网易云音乐节点
-http=106.52.127.72:19951, fast-open=false, udp-relay=false, tag= 解锁节点一
-[filter_local]
-# 本地分流规则:相同规则下本地规则优先生效
-# 绕过企业证书过期
-host, ocsp.apple.com, reject
-# 其它
-host-suffix, local, direct
-# 新版抖音本地分流
-host-suffix, snssdk.com, direct
-host-suffix, amemv.com, direct
-ip-cidr, 10.0.0.0/8, direct
-ip-cidr, 17.0.0.0/8, direct
-ip-cidr, 100.64.0.0/10, direct
-ip-cidr, 127.0.0.0/8, direct
-ip-cidr, 172.16.0.0/12, direct
-ip-cidr, 192.168.0.0/16, direct
-host-suffix, local, direct
-ip-cidr, 192.168.0.0/16, direct
-ip-cidr, 10.0.0.0/8, direct
-ip-cidr, 172.16.0.0/12, direct
-ip-cidr, 127.0.0.0/8, direct
-ip-cidr, 100.64.0.0/10, direct
-ip-cidr, 224.0.0.0/4, direct
-ip6-cidr, fe80::/10, direct
-host-suffix, music.126.net, DIRECT
-# DIRECT
-FINAL,🐟 漏网之鱼
+shadowsocks=example.com:80, method=aes-128-gcm, password=pwd, obfs=ws, fast-open=false, tag=无用节点1
+shadowsocks=example.com:80, method=aes-128-gcm, password=pwd, obfs=ws, fast-open=false, tag=无用节点2
 
-[filter_remote]
-# 网易云分流
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/NetEaseMusic/NetEaseMusic.list, tag=🙈 网易云音乐, force-policy=🙈 网易云音乐, enabled=true
-# Unbreak 后续规则修正
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Unbreak.list, tag=🎯规则修正-直连, update-interval=86400, opt-parser=false, enabled=true
-# Advertising 广告
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Guard/Advertising.list, tag=🛑轻量广告拦截-拒绝, update-interval=86400, opt-parser=false, enabled=true
-# 超过4万条广告规则, 阻止常见的APP广告/隐私/行为/数据/流量/劫持的统计和追踪
-https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt, tag=AD_Block（4万条去广告规则）, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
-# 超过6万条国内外广告规则, 可以与"AD_Block.txt"一起使用, 注: 可能有一些误杀, 请谨慎使用
-https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt, tag=AD_Block_plus（6万条去广告规则）, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
-# NobyDa大佬去广告 -默认关闭，自行手动启用！
-https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list, tag=🛑重度广告拦截-拒绝, force-policy=reject, update-interval=86400, opt-parser=false, enabled=false
-# Privacy 隐私
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Guard/Privacy.list, tag=🛑隐私保护-拒绝, update-interval=86400, opt-parser=false, enabled=true
-# Hijacking 运营商劫持或恶意网站
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Guard/Hijacking.list, tag=🛑运营商劫持-拒绝, update-interval=86400, opt-parser=false, enabled=true
-#国内媒体
-# Streaming 国际流媒体服务
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Streaming.list, , tag=🚀 节点选择, force-policy=🚀 节点选择, update-interval=86400, opt-parser=false , enabled=true
-# Global 全球加速
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Global.list, tag=🚀 节点选择, force-policy=🚀 节点选择, update-interval=86400, opt-parser=false , enabled=true
-# China 国内网站
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/China.list, tag=🎯国内网站-直连, force-policy=direct, update-interval=86400, opt-parser=false, enabled=true
-# ChinaIP 中国直连
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/ChinaIP.list, tag=🎯中国IP-直连, update-interval=86400, opt-parser=false , enabled=true
+[filter_local]
+geoip, cn, direct
+ip-cidr, 10.0.0.0/8, direct
+ip-cidr, 127.0.0.0/8, direct
+ip-cidr, 172.16.0.0/12, direct
+ip-cidr, 192.168.0.0/16, direct
+ip-cidr, 224.0.0.0/24, direct
+final, 🐟 Final
+
 [rewrite_remote]
+# General
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf, tag=🔀General, update-interval=86400, enabled=true
+# Block Advertising
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/Advertising.conf, tag=🛡Block Advertising, update-interval=86400, enabled=true
+# Block Advertising+
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/AdvertisingPlus.conf, tag=🛡Block Advertising+, update-interval=86400, enabled=true
+# Block YouTube Ads
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/YouTubeAds.conf, tag=🛡(<=16.43.2)不适用允许 UDP 转发的节点及 Premium, update-interval=86400, enabled=false
+
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.tf.conf, tag=Boxjs, update-interval=86400, opt-parser=false, enabled=true
+
 https://raw.githubusercontent.com/w37fhy/QuantumultX/master/QuantumultX_JS.conf, tag=比价等脚本, update-interval=86400, opt-parser=false, enabled=true
+
 https://raw.githubusercontent.com/w37fhy/QuantumultX/master/QuantumultX_Cookie.conf, tag=获取Cookie, update-interval=86400, opt-parser=false, enabled=true
-# 神机复写
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf, tag=神机复写, update-interval=86400, opt-parser=false, enabled=true
-# 关闭谷歌安全搜索(Beta)
+
+#关闭谷歌安全搜索(Beta)
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Turn-Off-Google-Safesearch.conf, tag=关闭谷歌安全搜索(Beta), update-interval=86400, opt-parser=false, enabled=true
-# YouTube去广告
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/YouTubeAds.conf, tag=YouTube去广告, update-interval=86400, opt-parser=false, enabled=true
-# 京东淘宝比价
-#去广告及VIP
-https://raw.githubusercontent.com/anran180224/Quantumult-X/main/JS.conf/Ad_vip.js, tag=去广告和VIP, update-interval=86400, opt-parser=false, enabled=true
+
 #微信小程序去广告
 https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Applet/QuanX.conf, tag=微信小程序去广告, update-interval=86400, opt-parser=false, enabled=true
 
 [rewrite_local]
 
 [task_local]
-event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=📺流媒体服务查询, img-url=checkmark.seal.system, enabled=true
-# GeoIP查询
-event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/geo_location.js, tag=GeoIP 查询, img-url=location.fill.viewfinder.system, enabled=true
 
 [http_backend]
 # BoxJs
